@@ -39,7 +39,7 @@
             enableLinger = optionalString cfg.manageAllUsers ''
               ${pkgs.coreutils}/bin/rm /var/lib/systemd/linger/* 2>/dev/null || true;
             '' + ''
-              ${pkgs.systemd}/bin/loginctl enable-linger ${toString cfg.users};
+              ${pkgs.coreutils}/bin/touch /var/lib/systemd/linger/${toString cfg.users};
             '';
           };
         };
